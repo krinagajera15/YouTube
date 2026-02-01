@@ -31,16 +31,16 @@
   background-color: #272727;
 }
 
-.yt-logo {
-  height: 24px;
+/* .yt-logo {
+  height: 50px;
   cursor: pointer;
-}
+} */
 
-.country-code {
-  font-size: 10px;
+/* .country-code {
+  font-size: 50px;
   color: #aaa;
-  margin-top: 2px;
-}
+  margin-top: 1px;
+} */
 
 /* Center Section (Search) */
 .nav-center {
@@ -210,14 +210,15 @@
 }
 
 .yt-logo {
-  height: 24px;
+  height: 30px;
   cursor: pointer;
 }
 
 .country-code {
-  font-size: 10px;
+  font-size: 15px;
   color: #aaa;
-  margin-top: 2px;
+  margin-bottom: 18px;
+  /* margin-top: 0.05px; */
 }
 
 /* Center Section (Search) */
