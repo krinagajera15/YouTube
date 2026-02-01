@@ -1,0 +1,361 @@
+/* Main Navbar Container */
+.navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #0f0f0f; /* YouTube dark */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Section */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.nav-icon:hover {
+  background-color: #272727;
+}
+
+.yt-logo {
+  height: 24px;
+  cursor: pointer;
+}
+
+.country-code {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* Center Section (Search) */
+.nav-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 720px;
+  margin: 0 16px;
+}
+
+.search-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #303030;
+  border-radius: 40px;
+  padding-left: 12px;
+  overflow: hidden;
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.search-btn {
+  background-color: #222;
+  border: none;
+  border-left: 1px solid #303030;
+  color: white;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search-btn:hover {
+  background-color: #272727;
+}
+
+.mic-icon {
+  margin-left: 12px;
+  background-color: #181818;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mic-icon:hover {
+  background-color: #303030;
+}
+
+/* Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.nav-right .nav-icon {
+  font-size: 24px;
+}
+
+.user-profile {
+  background-color: #5c6bc0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.2s ease;
+}
+
+.user-profile:hover {
+  background-color: #3f51b5;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #181818;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 100;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.profile-dropdown button {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.profile-dropdown button:hover {
+  background-color: #272727;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-center {
+    display: none;
+  }
+  .country-code {
+    display: none;
+  }
+}
+/* Main Navbar Container */
+.navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #0f0f0f; /* YouTube dark */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Section */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icon {
+  font-size: 38px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.nav-icon:hover {
+  background-color: #303030;
+}
+
+.yt-logo {
+  height: 24px;
+  cursor: pointer;
+}
+
+.country-code {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* Center Section (Search) */
+.nav-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 720px;
+  margin: 0 16px;
+}
+
+.search-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #303030;
+  border-radius: 40px;
+  padding-left: 12px;
+  overflow: hidden;
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.search-btn {
+  background-color: #222;
+  border: none;
+  border-left: 1px solid #303030;
+  color: white;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search-btn:hover {
+  background-color: #303030;
+}
+
+.mic-icon {
+  margin-left: 12px;
+  background-color: #181818;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mic-icon:hover {
+  background-color: #303030;
+}
+
+/* Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.nav-right .nav-icon {
+  /* background-color: #181818; */
+  font-size: 38px;
+}
+.nav-right .nav-icon:hover {
+  background-color: #303030;
+}
+
+.user-profile {
+  background-color: #5c6bc0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.2s ease;
+}
+
+.user-profile:hover {
+  background-color: #3f51b5;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #181818;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 100;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.profile-dropdown button {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.profile-dropdown button:hover {
+  background-color: #272727;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-center {
+    display: none;
+  }
+  .country-code {
+    display: none;
+  }
+}

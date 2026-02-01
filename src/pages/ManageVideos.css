@@ -1,0 +1,32 @@
+.manage-videos {
+    max-width: 800px;
+    margin: 50px auto;
+    font-family: sans-serif;
+  }
+  
+  .manage-videos h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .manage-videos ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .manage-videos li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .manage-videos button {
+    padding: 4px 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

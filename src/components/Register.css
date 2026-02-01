@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  
+  .register-wrapper {
+    height: 100vh;
+    display: flex;
+    background: #ffffff;
+  }
+  
+  /* ===== Left Image ===== */
+  .register-image {
+    flex: 1.2;
+    background: #ec0202;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register-image img {
+    width: 85%;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  /* ===== Right Form ===== */
+  .register-form {
+    flex: 1;
+    padding: 80px 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .register-form h2 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .register-form p {
+    color: #ec0202;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  /* ===== Button ===== */
+  .register-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ec0202;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .register-btn:hover {
+    background: #f70202;
+  }
+  
+  /* ===== Sign In Text ===== */
+  .signin-text {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .signin-link {
+    color: #f70202;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .signin-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .register-wrapper {
+      flex-direction: column;
+    }
+  
+    .register-image {
+      display: none;
+    }
+  
+    .register-form {
+      padding: 50px 25px;
+    }
+  }
+  

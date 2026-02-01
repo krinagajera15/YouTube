@@ -1,0 +1,16 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f0f; /* YouTube Dark Theme */
+  color: white;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+/* Home.jsx grid fixing */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}

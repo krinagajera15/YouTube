@@ -1,0 +1,147 @@
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+/* ===== Login Wrapper ===== */
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Left Image ===== */
+.login-image {
+  flex: 1.2;
+  background: #ec0202;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-image img {
+  width: 85%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.login-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Right Form ===== */
+.login-form {
+  flex: 1;
+  padding: 80px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 0 10px 10px 0;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.login-form h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.login-form p {
+  color: #ec0202;
+  font-size: 16px;
+  margin-bottom: 35px;
+  font-weight: 500;
+}
+
+/* ===== Input Fields ===== */
+.input-box {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-box:focus {
+  border-color: #ec0202;
+  box-shadow: 0 0 5px rgba(236, 2, 2, 0.4);
+}
+
+/* ===== Error Message ===== */
+.error {
+  color: #ec0202;
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* ===== Button ===== */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: #ec0202;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #f70202;
+  transform: translateY(-2px);
+}
+
+/* ===== Sign Up Text ===== */
+.signup-text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-link {
+  color:  #f70202;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .login-wrapper {
+    flex-direction: column;
+    box-shadow: none;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    padding: 50px 25px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

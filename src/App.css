@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.layout {
+  display: flex;
+}
+
+.content {
+   flex: 1; 
+   padding: 16px; 
+}

@@ -1,0 +1,29 @@
+.home {
+  padding: 20px 0px;
+  background-color: #0f0f0f;
+  min-height: calc(100vh - 56px);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.home h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 🔥 MAIN FIX */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
