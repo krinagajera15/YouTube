@@ -1,49 +1,66 @@
+/* Sidebar Main Container */
 .sidebar {
-    width: 200px;
-    background-color: #0f0f0f;
-    height: calc(100vh - 56px);
-    position: sticky;
-    top: 56px;
-    color: white;
-    padding-top: 12px;
-    border-right: 1px solid #272727; /* Halka divider mate */
-  }
+  width: 200px;
+  background-color: var(--bg-color); /* થીમ મુજબ બદલાશે */
+  height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+  color: var(--text-color); /* થીમ મુજબ બદલાશે */
+  padding-top: 12px;
+  border-right: 1px solid var(--border-color);
+
+}
+
+/* Individual Sidebar Item */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 40px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 14px;
+  margin: 0 12px 4px 12px;
+  border-radius: 10px;
+  cursor: pointer;
   
-  .sidebar-item {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    height: 40px;
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    margin: 0 12px 4px 12px;
-    border-radius: 10px;
-  }
-  
-  .sidebar-item:hover {
-    background-color: #272727;
-  }
-  
-  .sidebar-item.active {
-    background-color: #272727;
-    font-weight: 500;
-  }
-  
-  .s-icon {
-    margin-right: 24px;
-    font-size: 22px;
-  }
-  
-  .sidebar-title {
-    padding: 10px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-  }
-  
-  hr {
-    border: 0;
-    border-top: 1px solid #272727;
-    margin: 12px 0;
-  }
+}
+
+/* Hover Effect - થીમ પ્રમાણે બદલાશે */
+.sidebar-item:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Active Class - જે આઈટમ અત્યારે ખુલેલી હોય તેના માટે */
+.sidebar-item.active {
+  background-color: var(--hover-bg);
+  font-weight: 600;
+}
+
+/* Icons Style */
+.s-icon {
+  margin-right: 24px;
+  font-size: 22px;
+  color: var(--icon-color); /* Variables માંથી કલર લેશે */
+}
+
+/* Sidebar Title (You >) */
+.sidebar-title {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Horizontal Line (Divider) */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 12px 0;
+}
+
+/* Text and Icon inside item during hover */
+.sidebar-item:hover span,
+.sidebar-item:hover .s-icon {
+  color: var(--hover-text);
+}

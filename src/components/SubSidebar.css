@@ -1,15 +1,65 @@
-/* Sidebar.css */
-.sidebar {
-  width: 200px;
-  height: 100vh;
-  background: #fff;
-  padding: 10px;
+/* Mini Sidebar Container */
+.sidebar-mini {
+  width: 72px;
+  height: calc(100vh - 56px);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* બધા આઇટમ્સ ને આડા સેન્ટર કરશે */
+  padding-top: 4px;
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+  
 }
 
-.mini-sidebar {
-  width: 60px;
-  height: 100vh;
-  background: #fff;
-  padding: 10px;
+/* Individual Item Wrapper (Normal & Active) */
+.sidebar-item-mini, 
+.sidebar-item-mini-active {
+  width: 64px;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* આઇકોન સેન્ટર */
+  justify-content: center; /* આઇકોન અને ટેક્સ્ટ વચ્ચે જગ્યા સેટ કરશે */
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  
+}
+
+/* Active State - જે સિલેક્ટેડ હોય તેના માટે */
+.sidebar-item-mini-active {
+  background-color: var(--hover-bg); /* અથવા જો તમારે અલગ કલર રાખવો હોય */
+}
+
+/* Hover Effect */
+.sidebar-item-mini:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Icons Style */
+.s-icon-mini {
+  font-size: 24px;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+/* Text Style (Span) */
+.sidebar-item-mini span,
+.sidebar-item-mini-active span {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-color);
   text-align: center;
+  white-space: nowrap;
+}
+
+/* Divider Line */
+hr {
+  width: 80%;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 8px 0;
 }

@@ -2,34 +2,39 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./VideoCard.css";
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, isAdmin, onEdit, onDelete }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/watch/${video.id}`);
   };
 
-  // સેકન્ડ્સને MM:SS ફોર્મેટમાં ફેરવવા માટેનું ફંક્શન
   const formatDuration = (duration) => {
     if (!duration) return "00:00";
-    // જો ડ્યુરેશન ઓલરેડી સ્ટ્રિંગ (દા.ત. "10:05") હોય તો સીધું રિટર્ન કરો
     if (typeof duration === "string" && duration.includes(":")) return duration;
     
-    // જો સેકન્ડ્સમાં હોય તો કેલ્ક્યુલેટ કરો
     const mins = Math.floor(duration / 60);
     const secs = Math.floor(duration % 60);
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
   return (
-    <div className="video-card" onClick={() => navigate(`/watch/${video.id}`)}>
+    <div className="video-card" onClick={handleClick}>
       <div className="thumbnail-wrapper">
         <img src={video.thumbnail} alt={video.title} />
-        {/* જો API માં duration હશે તો જ દેખાશે, નહીંતર ખાલી રહેશે */}
         <span className="duration">
-          {video.duration ? video.duration : "00:00"}
+          {video.duration ? formatDuration(video.duration) : "00:00"}
         </span>
+
+        {/* Admin Buttons જો રોલ એડમિન હોય તો */}
+        {isAdmin && (
+          <div className="admin-overlay" onClick={(e) => e.stopPropagation()}>
+            <button className="edit-btn" onClick={() => onEdit(video.id)}>Edit</button>
+            <button className="delete-btn" onClick={() => onDelete(video.id)}>Delete</button>
+          </div>
+        )}
       </div>
+      
       <div className="video-info">
         <h3 className="video-title">{video.title}</h3>
         <p className="video-channel">{video.channel}</p>

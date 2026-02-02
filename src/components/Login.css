@@ -32,7 +32,6 @@ body {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
 }
 
 .login-image img:hover {
@@ -74,7 +73,7 @@ body {
   border: 1px solid #cfd8dc;
   font-size: 15px;
   outline: none;
-  transition: all 0.3s ease;
+ 
 }
 
 .input-box:focus {
@@ -102,7 +101,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
-  transition: background 0.3s ease, transform 0.2s ease;
+ 
 }
 
 .login-btn:hover {
@@ -121,7 +120,7 @@ body {
   color:  #f70202;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+ 
 }
 
 .signup-link:hover {

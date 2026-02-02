@@ -4,11 +4,11 @@ import Watch from "../pages/Watch";
 import AdminDashboard from "../pages/AdminDashboard";
 import AddVideo from "../pages/AddVideo";
 import ManageVideos from "../pages/ManageVideos";
-import AuthGuard from "../guard/AuthGuard";
 import NotFound from "../pages/NotFound";
 import Login from "./Login";
 import SignUp from "./Register";
 import Shorts from "../pages/Shorts";
+import { AuthGuard } from "../guard/AuthGuard";
 
 // ✅ Named export must match import
 export const router = createBrowserRouter([
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <AuthGuard />,
+    element: <AuthGuard/>,
     children: [
       { path: "/", element: <Home /> },
       { path: "/watch/:id", element: <Watch /> },

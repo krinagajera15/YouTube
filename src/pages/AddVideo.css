@@ -3,25 +3,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: calc(100vh - 80px); /* ફુલ સ્ક્રીન સેટિંગ */
     padding: 20px;
-    background-color: #f9f9f9;
+}
+
+/* લાઈટ થીમ કલર્સ */
+body.light .add-video-container {
+    background-color: #f1f1f1;
+}
+
+body.light .add-video-card {
+    background: white;
+    color: #333;
+}
+
+body.light .input-group label {
+    color: #555;
+}
+
+body.light .input-group input {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+/* ડાર્ક થીમ કલર્સ */
+body.dark .add-video-container {
+    background-color: #0f0f0f;
+}
+
+body.dark .add-video-card {
+    background: #1f1f1f;
+    color: white;
+}
+
+body.dark .add-video-card h2 {
+    color: white;
+}
+
+body.dark .input-group label {
+    color: #aaa;
+}
+
+body.dark .input-group input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #3f3f3f;
 }
 
 /* ફોર્મનું કાર્ડ */
 .add-video-card {
-    background: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 450px;
+   
 }
 
 .add-video-card h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #333;
     font-family: Arial, sans-serif;
 }
 
@@ -32,7 +74,6 @@
     gap: 20px;
 }
 
-/* ઈનપુટ ગ્રુપ (Label + Input) */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -42,29 +83,26 @@
 .input-group label {
     font-size: 14px;
     font-weight: bold;
-    color: #555;
 }
 
 .input-group input {
     padding: 12px;
-    border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 15px;
     outline: none;
-    transition: border-color 0.3s;
 }
 
 .input-group input:focus {
-    border-color: #ff0000; /* YouTube Red */
+    border-color: #ff0000; /* YouTube Red focus */
 }
 
 /* થંબનેલ પ્રિવ્યૂ */
 .thumbnail-preview {
     text-align: center;
-    border: 1px dashed #ccc;
+    border: 1px dashed #555;
     padding: 10px;
     border-radius: 8px;
-    background: #fafafa;
+    background: rgba(128, 128, 128, 0.1);
 }
 
 .thumbnail-preview p {
@@ -90,7 +128,6 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
     margin-top: 10px;
 }
 
@@ -98,6 +135,3 @@
     background-color: #cc0000;
 }
 
-.upload-btn:active {
-    transform: scale(0.98);
-}

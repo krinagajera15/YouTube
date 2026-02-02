@@ -1,26 +1,36 @@
+/* જનરલ સેટિંગ્સ */
 .home {
-  padding: 20px 0px;
-  background-color: #0f0f0f;
+  padding: 20px;
   min-height: calc(100vh - 56px);
   font-family: 'Roboto', sans-serif;
-  color: white;
 }
 
-.home h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
+/* લાઈટ થીમ માટે */
+body.light, .home.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light .home h2 {
+  color: #000000;
+}
+
+/* ડાર્ક થીમ માટે */
+body.dark, .home.dark {
+  background-color: #0f0f0f;
   color: #ffffff;
-  font-weight: 600;
 }
 
-/* 🔥 MAIN FIX */
+body.dark .home h2 {
+  color: #ffffff;
+}
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .video-grid {
     grid-template-columns: 1fr;

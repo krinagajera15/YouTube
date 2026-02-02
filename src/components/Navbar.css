@@ -5,11 +5,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  background-color: #0f0f0f; /* YouTube dark */
-  color: white;
+  background-color: var(--bg-color); /* થીમ મુજબ બદલાશે */
+  color: var(--text-color);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+
 }
 
 /* Left Section */
@@ -17,208 +19,41 @@
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-.nav-icon {
-  font-size: 24px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
-}
-
-.nav-icon:hover {
-  background-color: #272727;
-}
-
-/* .yt-logo {
-  height: 50px;
-  cursor: pointer;
-} */
-
-/* .country-code {
-  font-size: 50px;
-  color: #aaa;
-  margin-top: 1px;
-} */
-
-/* Center Section (Search) */
-.nav-center {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  max-width: 720px;
-  margin: 0 16px;
-}
-
-.search-box {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  background-color: #121212;
-  border: 1px solid #303030;
-  border-radius: 40px;
-  padding-left: 12px;
-  overflow: hidden;
-}
-
-.search-box input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 16px;
-  padding: 8px 12px;
-}
-
-.search-btn {
-  background-color: #222;
-  border: none;
-  border-left: 1px solid #303030;
-  color: white;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.search-btn:hover {
-  background-color: #272727;
-}
-
-.mic-icon {
-  margin-left: 12px;
-  background-color: #181818;
-  border-radius: 50%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.mic-icon:hover {
-  background-color: #303030;
-}
-
-/* Right Section */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-}
-
-.nav-right .nav-icon {
-  font-size: 24px;
-}
-
-.user-profile {
-  background-color: #5c6bc0;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 8px;
-  transition: background 0.2s ease;
-}
-
-.user-profile:hover {
-  background-color: #3f51b5;
-}
-
-/* Profile dropdown */
-.profile-dropdown {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background-color: #181818;
-  border-radius: 8px;
-  border: 1px solid #333;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  z-index: 100;
-  min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.profile-dropdown button {
-  padding: 10px 16px;
-  background: transparent;
-  border: none;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 14px;
-  transition: background 0.2s ease;
-}
-
-.profile-dropdown button:hover {
-  background-color: #272727;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .nav-center {
-    display: none;
-  }
-  .country-code {
-    display: none;
-  }
-}
-/* Main Navbar Container */
-.navbar {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  background-color: #0f0f0f; /* YouTube dark */
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Left Section */
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.nav-icon {
-  font-size: 38px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
-}
-
-.nav-icon:hover {
-  background-color: #303030;
 }
 
 .yt-logo {
-  height: 30px;
+  height: 30px; /* YouTube logo size */
   cursor: pointer;
 }
 
+.yt-logo-title {
+  font-size: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  margin-left: -12px;
+}
+
 .country-code {
-  font-size: 15px;
+  font-size: 10px;
   color: #aaa;
-  margin-bottom: 18px;
-  /* margin-top: 0.05px; */
+  align-self: flex-start;
+  margin-bottom: 14px;
+}
+
+/* Icons Style (Reusable) */
+.nav-icon {
+  height: 30%;
+  width: 30%;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--text-color);
+
+}
+
+.nav-icon:hover {
+  background-color: var(--hover-bg);
 }
 
 /* Center Section (Search) */
@@ -234,8 +69,8 @@
   display: flex;
   flex: 1;
   align-items: center;
-  background-color: #121212;
-  border: 1px solid #303030;
+  background-color: var(--bg-color); /* થીમ મુજબ */
+  border: 1px solid  var(--border-color);
   border-radius: 40px;
   padding-left: 12px;
   overflow: hidden;
@@ -246,16 +81,16 @@
   background: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
   padding: 8px 12px;
 }
 
 .search-btn {
-  background-color: #222;
+  background-color: var(--hover-bg);
   border: none;
-  border-left: 1px solid #303030;
-  color: white;
+  border-left: 1px solid var(--border-color);
+  color: var(--text-color);
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -263,13 +98,9 @@
   font-size: 20px;
 }
 
-.search-btn:hover {
-  background-color: #303030;
-}
-
 .mic-icon {
   margin-left: 12px;
-  background-color: #181818;
+  background-color: var(--hover-bg);
   border-radius: 50%;
   padding: 10px;
   display: flex;
@@ -277,11 +108,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.mic-icon:hover {
-  background-color: #303030;
+  color: var(--text-color);
 }
 
 /* Right Section */
@@ -292,16 +119,9 @@
   position: relative;
 }
 
-.nav-right .nav-icon {
-  /* background-color: #181818; */
-  font-size: 38px;
-}
-.nav-right .nav-icon:hover {
-  background-color: #303030;
-}
-
 .user-profile {
-  background-color: #5c6bc0;
+  background-color: #5c6bc0; /* Profile circle color fixed stays same */
+  color: white;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -312,43 +132,39 @@
   font-weight: bold;
   cursor: pointer;
   margin-left: 8px;
-  transition: background 0.2s ease;
 }
 
-.user-profile:hover {
-  background-color: #3f51b5;
-}
-
-/* Profile dropdown */
+/* Profile dropdown - આ ભાગ ખાસ સુધારેલ છે */
 .profile-dropdown {
   position: absolute;
   top: 50px;
   right: 0;
-  background-color: #181818;
+  background-color: var(--bg-color); /* ડ્રોપડાઉન બેકગ્રાઉન્ડ હવે થીમ મુજબ બદલાશે */
   border-radius: 8px;
-  border: 1px solid #333;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   z-index: 100;
-  min-width: 100px;
+  min-width: 150px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  padding: 8px 0;
 }
 
 .profile-dropdown button {
   padding: 10px 16px;
   background: transparent;
   border: none;
-  color: #fff;
-  text-align: center;
+  color: var(--text-color);
+  text-align: left;
   cursor: pointer;
-  font-weight: 500;
   font-size: 14px;
-  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .profile-dropdown button:hover {
-  background-color: #272727;
+  background-color: var(--hover-bg);
 }
 
 /* Responsive */

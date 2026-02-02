@@ -1,26 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdMic, MdVideoCall, MdNotifications } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import imgs from'../assets/image/youtube.png'
+import Modecontext from "../Context/ModeContext";
 
 const Navbar = ({toggleSidebar}) => {
   const [userInitial, setUserInitial] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { mode, toggleMode } = useContext(Modecontext);
+  console.log("toggle home");
+
   const dropdownRef = useRef(null);
 
-  // Fetch login data from localStorage on mount
-  // useEffect(() => {
-  //   const loginData = JSON.parse(localStorage.getItem("loginData"));
-  //   if (loginData) {
-  //     const firstLetter = loginData.username
-  //       ? loginData.username.charAt(0).toUpperCase()
-  //       : loginData.email.charAt(0).toUpperCase();
-  //     setUserInitial(firstLetter);
-  //   }
-  // }, []);
   useEffect(() => {
     const loginData = JSON.parse(localStorage.getItem("loginData"));
     if (loginData) {
@@ -56,10 +52,11 @@ const Navbar = ({toggleSidebar}) => {
       <div className="nav-left">
         <HiMenu className="nav-icon" onClick={toggleSidebar} />
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+          src={imgs} 
           alt="YouTube Logo" 
           className="yt-logo" 
         />
+        <h1 className="yt-logo-title">YouTube</h1>
         <span className="country-code">IN</span>
       </div>
       
@@ -88,6 +85,9 @@ const Navbar = ({toggleSidebar}) => {
         {dropdownOpen && (
           <div className="profile-dropdown">
             <button onClick={handleLogout}>Logout</button>
+            <button onClick={toggleMode}>
+              {mode === "light" ? "🌙 Dark" : "☀ Light"}
+            </button>
           </div>
         )}
       </div>

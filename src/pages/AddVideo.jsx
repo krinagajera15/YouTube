@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./AddVideo.css";
+import Modecontext from "../Context/ModeContext"; // Context ઈમ્પોર્ટ કરો
 
 const AddVideo = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,10 @@ const AddVideo = () => {
   });
 
   const navigate = useNavigate();
+  
+  // થીમ મેળવો
+  const ctx = useContext(Modecontext);
+  const theme = ctx?.mode || 'light';
 
   const getYouTubeID = (url) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -49,14 +54,15 @@ const AddVideo = () => {
     .then((res) => res.json())
     .then(() => {
       alert("Video Added Successfully! 🎉");
-      setFormData({ title: "", channel: "", thumbnail: "", url: "" }); 
+      setFormData({ title: "", channel: "", thumbnail: "", url: "", duration: "" }); 
       navigate("/"); 
     })
     .catch((err) => console.error("Error adding video:", err));
   };
 
   return (
-    <div className="add-video-container">
+    // ક્લાસમાં થીમ ઉમેરવી જરૂરી છે
+    <div className={`add-video-container ${theme}`}>
       <div className="add-video-card">
         <h2>Add New YouTube Video</h2>
         <form onSubmit={handleSubmit} className="add-video-form">
@@ -93,6 +99,7 @@ const AddVideo = () => {
               required 
             />
           </div>
+
           <div className="input-group">
             <label>Video Duration (e.g. 10:05)</label>
             <input 
