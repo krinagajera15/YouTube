@@ -1,0 +1,73 @@
+.voice-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  padding-top: 10px;
+  align-items: start;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.voice-modal {
+  background: white;
+  width: 560px;
+  height: 400px;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+.voice-modal.dark{
+  background-color: black;
+  color: white;
+}
+
+.voice-modal h2 {
+  margin-bottom: 10px;
+  color: black;
+  text-align: left;
+}
+.voice-modal.dark h2{
+  color: white;
+}
+
+.voice-modal p {
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 160px;
+}
+
+.close-btn {
+  color: black;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.voice-modal.dark .close-btn{
+  color: white;
+}
+
+.mic-circle {
+  margin: 30px auto 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgb(160, 157, 157);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.mic-circle:hover {
+    background: rgb(99, 97, 97);
+    cursor: pointer;
+  }

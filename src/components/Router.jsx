@@ -9,6 +9,7 @@ import Login from "./Login";
 import SignUp from "./Register";
 import Shorts from "../pages/Shorts";
 import { AuthGuard } from "../guard/AuthGuard";
+import AddShorts from "../pages/AddShorts";
 
 // ✅ Named export must match import
 export const router = createBrowserRouter([
@@ -29,7 +30,8 @@ export const router = createBrowserRouter([
       { path: "/admin/dashboard", element: <AdminDashboard /> },
       { path: "/admin/add-video", element: <AddVideo /> },
       { path: "/admin/manage-videos", element: <ManageVideos /> },
-       { path: "/Shorts", element: <Shorts /> },
+      { path: "/addshorts", element: <AddShorts /> },
+      { path: "/shorts", element: <Shorts /> },
     ],
   },
   { path: "*", element: <NotFound /> },

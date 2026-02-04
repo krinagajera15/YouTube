@@ -1,0 +1,176 @@
+/* Overlay: dark transparent background */
+.create-channel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+.create-channel-modal.dark{
+
+  background-color: #181818;
+  color: white;
+}
+.create-channel-modal.light{
+
+  background-color: white;
+  color: #181818;
+}
+
+/* Modal Box */
+.create-channel-modal {
+  background-color: #181818;
+  padding: 24px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideDown 0.3s ease;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Modal Header */
+.create-channel-modal h2 {
+  margin: 0;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.create-channel-modal.light h2{
+
+  background-color: white;
+  color: #181818;
+}
+/* Image Upload */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.placeholder{
+  color: white;
+}
+.create-channel-modal.light .placeholder{
+  color: rgb(56, 55, 55);
+}
+
+.create-channel-modal.light input[type="file"]{
+  color: #181818;
+}
+.image-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #888;
+}
+
+.create-channel-modal.light .image-preview{
+  background-color: #e0dfdf;
+  color: #313131;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-upload input[type="file"] {
+  cursor: pointer;
+  color: #ddd6d6;
+}
+
+/* Text Input */
+.create-channel-modal input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #121212;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.create-channel-modal.light input[type="text"]{
+  background-color: #e0dfdf;
+  color: #000000;
+
+}
+
+.create-channel-modal input[type="text"]:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 6px rgba(92, 107, 192, 0.5);
+}
+
+/* Buttons */
+.create-channel-modal button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.create-channel-modal button:hover {
+  transform: scale(1.02);
+}
+
+/* Submit Button */
+.create-channel-modal button:first-of-type {
+  background-color: #f14b4b;
+  color: #fff;
+}
+
+.create-channel-modal button:first-of-type:hover {
+  background-color: #e62323;
+}
+
+/* Cancel Button */
+.create-channel-modal .cancel-btn {
+  background-color: #333;
+  color: #fff;
+}
+
+.create-channel-modal .cancel-btn:hover {
+  background-color: #444;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .create-channel-modal {
+    width: 90%;
+    padding: 20px;
+  }
+}

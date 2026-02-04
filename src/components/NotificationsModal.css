@@ -1,0 +1,106 @@
+/* BACKDROP */
+.notif-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+/* MODAL */
+.notif-modal {
+  width: 420px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 12px 0;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.notif-modal.dark{
+  background-color: black;
+  color: white;
+}
+.notif-modal.light{
+  background-color:white;
+  color: black;
+}
+.notif-modal h3 {
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  border-bottom: 1px solid #ddd;
+}
+.notif-modal.dark h3{
+  color: white;
+}
+.titl-noti-class{
+  color: black;
+}
+.notif-modal.dark .titl-noti-class{
+  color: white;
+}
+
+/* LIST */
+.notif-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ITEM */
+.notif-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.notif-item:hover {
+  background: #f2f2f2;
+}
+.notif-modal.dark .notif-item:hover{
+  background: #7a7a7a;
+}
+
+/* CHANNEL IMAGE (CIRCLE) */
+.channel-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e5e5e5;
+  flex-shrink: 0;
+}
+
+/* TEXT */
+.notif-text {
+  flex: 1;
+}
+
+.notif-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.4;
+}
+
+.notif-text small {
+  color: #cac7c7;
+  font-size: 12px;
+}
+.notif-modal.light .notif-text small{
+  color: #424141;
+}
+
+/* VIDEO THUMBNAIL (RIGHT SIDE) */
+.video-thumb {
+  width: 86px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}

@@ -1,20 +1,32 @@
-/* Full page
+.shorts-class{
+  background-color: black;
+}
+.shorts-class.dark{
+  background-color: black;
+  color: white;
+}
+.shorts-class.light{
+  background-color: white;
+  color: black;
+}
 .shorts-container {
   height: 100vh;
-  width: 100%;
-  background: black;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  display: flex;
-  justify-content: center;
+  background-color: black;
 }
-
-
+.shorts-class.light .shorts-container{
+  background-color: white;
+}
+.shorts-container h2{
+  color: white;
+  text-align: center;
+}
+.shorts-class.light .shorts-container h2{
+  color: black;
+} 
 .short-card {
-  height: 90vh;
-  width: 90%;
-  max-width: 420px;       
-  margin: auto;
+  height: 100vh;
   scroll-snap-align: start;
   position: relative;
   display: flex;
@@ -22,115 +34,22 @@
   align-items: center;
 }
 
-.short-card video {
-  height: 90%;
-  width: 80%;
-  object-fit: cover;
+.short-card iframe {
+  width: 360px;
+  height: 640px;
   border-radius: 12px;
 }
 
-
-.short-card h4 {
+.short-info {
   position: absolute;
-  bottom: 90px;
-  left: 0px;
+  bottom: 20px;
+  left: 20px;
   color: white;
-  font-size: 16px;
-  font-weight: 500;
 }
-
-
+.shorts-class.light .short-info{
+  color: black;
+}
 .short-actions {
-  position: absolute;
-  right: -60px;
-  bottom: 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  color: white;
-  font-size: 22px;
-  text-align: center;
-}
-
-
-.short-actions div {
-  cursor: pointer;
-}
-
-.short-actions span {
-  font-size: 12px;
-  display: block;
-  margin-top: 4px;
-}
-
-
-.shorts-container::-webkit-scrollbar {
-  display: none;
-} */
-/* FULL PAGE CONTAINER */
-/* ===== FULL PAGE CONTAINER ===== */
-/* ===== CONTAINER ===== */
-/* FULL PAGE */
-.shorts-container {
-  height: 100vh;
-  width: 100%;
-  background: black;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-.shorts-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* EACH SHORT */
-.short-card {
-  height: 100vh;
-  width: 100%;
-  scroll-snap-align: start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* VIDEO */
-.short-video {
-  height: 90vh;
-  width: 360px;
-  border-radius: 16px;
-}
-
-/* TITLE */
-.short-title {
-  position: absolute;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-/* ACTION ICONS */
-.short-actions {
-  position: absolute;
-  right: calc(50% - 210px); /* video ni baju ma */
-  bottom: 140px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  color: white;
-  font-size: 22px;
-  text-align: center;
-}
-
-.action {
-  cursor: pointer;
-}
-
-.action span {
-  display: block;
-  font-size: 12px;
-  margin-top: 4px;
+  margin-top: 5px;
+  font-size: 14px;
 }
