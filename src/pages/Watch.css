@@ -1,19 +1,288 @@
-.watch-page {
-  padding: 20px;
-  color: white;
+/* થીમ વેરીએબલ્સ */
+:root {
+  --text-main: #0f0f0f;
+  --text-sub: #606060;
+  --bg-watch: #ffffff;
+  --btn-bg: #f2f2f2;
+  --btn-hover: #e5e5e5;
+  --sub-bg: #0f0f0f;
+  --sub-text: #ffffff;
 }
 
-.video-player iframe {
+body.dark {
+  --text-main: #ffffff;
+  --text-sub: #aaaaaa;
+  --bg-watch: #0f0f0f;
+  --btn-bg: #272727;
+  --btn-hover: #3f3f3f;
+  --sub-bg: #ffffff;
+  --sub-text: #0f0f0f;
+}
+.subscribe-btn {
+  /* સબસ્ક્રાઇબ ન કર્યું હોય ત્યારે બટન થીમથી ઉલટું હોવું જોઈએ (Highlight માટે) */
+  background-color: var(--text-color); /* Light માં બ્લેક, Dark માં વ્હાઇટ */
+  color: var(--bg-color);              /* Light માં વ્હાઇટ, Dark માં બ્લેક */
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+/* ૧. Modal Overlay - આખા સ્ક્રીન પર કાળું પડ (થોડું પારદર્શક) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 480px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* ગમે તે થીમ હોય, ઓવરલે હંમેશા ડાર્ક રાખવો સારો લાગે */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px); /* બેકગ્રાઉન્ડ બ્લર કરવા માટે (ઓપ્શનલ) */
+}
+
+/* ૨. Modal Box - જે તમારી થીમ મુજબ કલર બદલશે */
+.login-modal {
+  background-color: var(--bg-color); /* થીમ મુજબ સફેદ કે કાળું */
+  color: var(--text-color);           /* થીમ મુજબ કાળું કે સફેદ */
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--hover-bg); /* થીમ મુજબની બોર્ડર */
+}
+
+/* ૩. Close બટન */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+  opacity: 0.7;
+}
+
+/* ૪. ટેક્સ્ટ સ્ટાઇલ */
+.login-modal h2 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.login-modal p {
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* ૫. Sign In બટન (Highlight માટે આને બ્લુ જ રાખવું સારું લાગશે) */
+.modal-signin-btn {
+  background-color: #ff6565; /* YouTube Blue (જે ડાર્ક અને લાઇટ બંનેમાં દેખાશે) */
+  color: #0f0f0f;           /* બટનનો ટેક્સ્ટ કલર */
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.modal-signin-btn:hover {
+  background-color: #ff3e3e;
+}
+
+/* સબસ્ક્રાઇબ થયા પછીનું લુક (YouTube જેવું Greyish) */
+.subscribe-btn.subscribed {
+  background-color: var(--hover-bg); /* તમારી થીમ મુજબનું ગ્રે બેકગ્રાઉન્ડ */
+  color: var(--text-color);          /* થીમ મુજબનો ટેક્સ્ટ કલર */
+}
+
+/* સબસ્ક્રાઇબ બટન ના આઇકન માટે */
+.subscribe-btn svg {
+  color: inherit; /* બટનના ટેક્સ્ટ કલર મુજબ આઇકન કલર સેટ થશે */
+}
+
+.watch-container {
+  display: flex;
+  padding: 20px 40px;
+  gap: 24px;
+  background-color: var(--bg-watch);
+  min-height: 100vh;
+}
+
+/* LEFT SECTION */
+.watch-main {
+  flex: 3;
+}
+
+.video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
 }
 
-.watch-page h2 {
-  margin-top: 15px;
+.watch-title {
   font-size: 20px;
+  font-weight: bold;
+  color: var(--text-main);
+  margin: 12px 0;
 }
 
-.watch-page p {
-  color: #aaa;
+.video-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.channel-avatar-img {
+  font-size: 40px;
+  color: var(--text-main);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.channel-name {
+  color: var(--text-main);
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.sub-count {
+  color: var(--text-sub);
+  font-size: 12px;
+  margin: 0;
+}
+
+.subscribe-btn {
+  background-color: var(--sub-bg);
+  color: var(--sub-text);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* Action Buttons Like/Share */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-buttons button, .like-dislike-group {
+  background-color: var(--btn-bg);
+  color: var(--text-main);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.like-dislike-group {
+  padding: 0;
+  overflow: hidden;
+}
+
+.like-dislike-group button {
+  border-radius: 0;
+  padding: 8px 14px;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--text-sub);
+  opacity: 0.3;
+}
+
+/* RIGHT SECTION: Recommendations */
+.watch-recommendations {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recommendation-card {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.rect-thumbnail {
+  flex: 1;
+}
+
+.rect-thumbnail img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.rect-info {
+  flex: 1.2;
+}
+
+.rect-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rect-meta {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+/* Loading & Error */
+.loading-text, .error-text {
+  text-align: center;
+  padding: 50px;
+  color: var(--text-main);
 }

@@ -26,7 +26,7 @@ const VideoCard = ({ video, isAdmin, onEdit, onDelete }) => {
           {video.duration ? formatDuration(video.duration) : "00:00"}
         </span>
 
-        {/* Admin Buttons જો રોલ એડમિન હોય તો */}
+        {/* Admin Buttons */}
         {isAdmin && (
           <div className="admin-overlay" onClick={(e) => e.stopPropagation()}>
             <button className="edit-btn" onClick={() => onEdit(video.id)}>Edit</button>
@@ -34,9 +34,18 @@ const VideoCard = ({ video, isAdmin, onEdit, onDelete }) => {
           </div>
         )}
       </div>
-      
+
       <div className="video-info">
-        <h3 className="video-title">{video.title}</h3>
+        <div className="title-row">
+          {video.channelImage && (
+            <img
+              src={video.channelImage}
+              alt={video.channel}
+              className="channel-avatar"
+            />
+          )}
+          <h3 className="video-title">{video.title}</h3>
+        </div>
         <p className="video-channel">{video.channel}</p>
       </div>
     </div>

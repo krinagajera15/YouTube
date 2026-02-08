@@ -1,0 +1,64 @@
+.main-subscript-class {
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .main-subscript-description-class {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .subscript-detail-class {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-muted, #888);
+    margin-bottom: 20px;
+  }
+  
+  .btn-signin-class {
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color, #ff3e3e);
+    background-color: transparent;
+    color: var(--primary-color, #ff3e3e);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-signin-class:hover {
+    background-color: var(--primary-color, #ff3e3e);
+    color: #fff;
+  }
+  .subscription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  
+  .subscription-table th,
+  .subscription-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+    color: var(--text-color);
+  }
+  
+  .subscription-table th {
+    background-color: var(--hover-bg);
+    font-weight: 600;
+  }
+  
+  .subscription-table tr:hover {
+    background-color: var(--hover-bg);
+  }
+  

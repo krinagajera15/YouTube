@@ -13,6 +13,9 @@
   z-index: 10;
   
 }
+.sidebar-item-mini{
+  font-size: 12px;
+}
 
 /* Individual Item Wrapper (Normal & Active) */
 .sidebar-item-mini, 
@@ -27,6 +30,9 @@
   border-radius: 10px;
   margin-bottom: 4px;
   
+}
+a{
+  text-decoration: none;
 }
 
 /* Active State - જે સિલેક્ટેડ હોય તેના માટે */
@@ -46,9 +52,9 @@
   color: var(--text-color);
 }
 
-/* Text Style (Span) */
-.sidebar-item-mini span,
-.sidebar-item-mini-active span {
+/* Text Style (NavLink) */
+.sidebar-item-mini .NavLink,
+.sidebar-item-mini-active .NavLink {
   font-size: 10px;
   font-weight: 400;
   color: var(--text-color);

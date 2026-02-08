@@ -8,30 +8,31 @@ import {
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import "./SubSidebar.css";
+import { NavLink } from "react-router-dom";
 
 const MiniSidebar = () => {
   return (
     <div className="sidebar-mini">
       <div className="sidebar-item-mini-active">
         <MdHome className="s-icon-mini" /> 
-        <span>Home</span>
+        <NavLink to={"/"}>Home</NavLink>
       </div>
       <div className="sidebar-item-mini">
         <SiYoutubeshorts className="s-icon-mini" /> 
-        <span>Shorts</span>
+        <NavLink to={"/shorts"}>Shorts</NavLink>
       </div>
       <div className="sidebar-item-mini">
         <MdOutlineSubscriptions className="s-icon-mini" /> 
-        <span>Subscriptions</span>
+        <NavLink>Subscriptions</NavLink>
       </div>
       <hr />
       <div className="sidebar-item-mini">
         <MdHistory className="s-icon-mini" /> 
-        <span>History</span>
+        <NavLink>History</NavLink>
       </div>
       <div className="sidebar-item-mini">
         <MdAddCircleOutline className="s-icon-mini" /> 
-        <span>Add Video</span>
+        <NavLink>Add Video</NavLink>
       </div>
     </div>
   );

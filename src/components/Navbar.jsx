@@ -17,6 +17,10 @@ const Navbar = ({ toggleSidebar }) => {
   const [videoDropdownOpen, setVideoDropdownOpen] = useState(false);
   const [createChannelOpen, setCreateChannelOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  // સર્ચ માટેની સ્ટેટ
+  const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
   const videoRef = useRef(null);
@@ -32,31 +36,26 @@ const Navbar = ({ toggleSidebar }) => {
         : loginData.email
         ? loginData.email.charAt(0).toUpperCase()
         : "U";
-      setUserInitial(firstLetter);
+        setUserInitial(firstLetter);
+        setIsLoggedIn(true);
+    } else {
+      setUserInitial("U");
+      setIsLoggedIn(false);
     }
   }, []);
 
-  // Close dropdown if click outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
-      if (videoRef.current && !videoRef.current.contains(event.target)) {
-        setVideoDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // સર્ચ હેન્ડલર
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      // સર્ચ ટર્મ સાથે સર્ચ પેજ પર મોકલો
+      navigate(`/search?query=${searchTerm}`);
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("loginData");
     navigate("/login");
-  };
-
-  const handleCreateChannel = (channel) => {
-    console.log("New Channel Created:", channel);
   };
 
   return (
@@ -64,23 +63,27 @@ const Navbar = ({ toggleSidebar }) => {
       <nav className="navbar">
         <div className="nav-left">
           <HiMenu className="nav-icon" onClick={toggleSidebar} />
-          <img src={imgs} alt="YouTube Logo" className="yt-logo" />
-          <h1 className="yt-logo-title">YouTube</h1>
+          <img src={imgs} alt="YouTube Logo" className="yt-logo" onClick={() => navigate("/")} style={{cursor:'pointer'}} />
+          <h1 className="yt-logo-title" onClick={() => navigate("/")} style={{cursor:'pointer'}}>YouTube</h1>
           <span className="country-code">IN</span>
         </div>
 
         <div className="nav-center">
-          <div className="search-box">
-            <input type="text" placeholder="Search" />
-            <button className="search-btn"><AiOutlineSearch /></button>
-          </div>
+          <form className="search-box" onSubmit={handleSearch}>
+            <input 
+              type="text" 
+              placeholder="Search" 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button type="submit" className="search-btn"><AiOutlineSearch /></button>
+          </form>
           <div className="mic-icon" onClick={() => setVoiceOpen(true)}>
             <MdMic />
           </div>
         </div>
 
         <div className="nav-right">
-          {/* Create Video dropdown */}
           <div className="create-video" ref={videoRef}>
             <MdVideoCall
               className="nav-icon"
@@ -99,7 +102,6 @@ const Navbar = ({ toggleSidebar }) => {
             onClick={() => setNotificationsOpen(!notificationsOpen)}
           />
 
-          {/* User Profile */}
           <div className="user-profile-container" ref={dropdownRef} style={{position: 'relative'}}>
             <div className="user-profile" onClick={() => setDropdownOpen(!dropdownOpen)}>
               {userInitial || "U"}
@@ -107,7 +109,11 @@ const Navbar = ({ toggleSidebar }) => {
 
             {dropdownOpen && (
               <div className="profile-dropdown">
-                <button onClick={handleLogout}>Logout</button>
+                {isLoggedIn ? (
+                  <button onClick={handleLogout}>Logout</button>
+                ) : (
+                  <button onClick={() => navigate("/login")}>Login</button>
+                )}
                 <button onClick={toggleMode}>
                   {mode === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
                 </button>
@@ -118,15 +124,8 @@ const Navbar = ({ toggleSidebar }) => {
       </nav>
 
       <VoiceSearchModal isOpen={voiceOpen} onClose={() => setVoiceOpen(false)} />
-      <CreateChannelModal
-        isOpen={createChannelOpen}
-        onClose={() => setCreateChannelOpen(false)}
-        onCreate={handleCreateChannel}
-      />
-      <NotificationsModal
-        isOpen={notificationsOpen}
-        onClose={() => setNotificationsOpen(false)}
-      />
+      <CreateChannelModal isOpen={createChannelOpen} onClose={() => setCreateChannelOpen(false)} onCreate={(channel) => console.log(channel)} />
+      <NotificationsModal isOpen={notificationsOpen} onClose={() => setNotificationsOpen(false)} />
     </>
   );
 };

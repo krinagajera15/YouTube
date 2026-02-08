@@ -10,6 +10,9 @@ import SignUp from "./Register";
 import Shorts from "../pages/Shorts";
 import { AuthGuard } from "../guard/AuthGuard";
 import AddShorts from "../pages/AddShorts";
+import { Subscriptionpage } from "../pages/SubscriptionPage";
+import SearchPage from "../pages/SearchPage";
+import ChannelDashboard from "./ChanelDashbord";
 
 // ✅ Named export must match import
 export const router = createBrowserRouter([
@@ -32,6 +35,9 @@ export const router = createBrowserRouter([
       { path: "/admin/manage-videos", element: <ManageVideos /> },
       { path: "/addshorts", element: <AddShorts /> },
       { path: "/shorts", element: <Shorts /> },
+      { path: "/subscribe", element: <Subscriptionpage /> },
+      { path: "/search", element: <SearchPage /> },
+      { path: "/chaneldash", element: <ChannelDashboard /> },
     ],
   },
   { path: "*", element: <NotFound /> },

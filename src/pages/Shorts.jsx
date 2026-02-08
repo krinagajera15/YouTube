@@ -1,155 +1,105 @@
-import React, { useEffect, useState, useRef } from "react";
+// import React from "react";
+// import "./Shorts.css";
+
+// const shortsData = [
+//   {
+//     id: 1,
+//     videoId: "UBDocfEiFlA",
+//     title: "React Tips 🔥",
+//     likes: 928,
+//     comments: 12,
+//   },
+//   {
+//     id: 4,
+//     videoId: "oy8lS29ckr4",
+//     title:"prret re",
+//     likes:900,
+//     comments:56
+//   },
+//   {
+//     id: 3,
+//     videoId: "dQw4w9WgXcQ",
+//     title: "JavaScript Shorts ⚡",
+//     likes: 1200,
+//     comments: 48,
+//   },
+// ];
+
+// const Shorts = () => {
+//   return (
+//     <div className="shorts-container">
+//       {shortsData.map((short) => (
+//         <div className="short-card" key={short.id}>
+          
+//           {/* VIDEO */}
+//           <iframe
+//             className="short-video"
+//             src={`https://www.youtube.com/embed/${short.videoId}?autoplay=1&mute=1&loop=1&playlist=${short.videoId}`}
+//             frameBorder="0"
+//             allow="autoplay; encrypted-media"
+//             allowFullScreen
+//           ></iframe>
+
+//           {/* TITLE */}
+//           <h4 className="short-title">{short.title}</h4>
+
+//           {/* ACTIONS */}
+//           <div className="short-actions">
+//             <div className="action">👍 <span>{short.likes}</span></div>
+//             <div className="action">👎 <span>Dislike</span></div>
+//             <div className="action">💬 <span>{short.comments}</span></div>
+//             <div className="action">🔗 <span>Share</span></div>
+//             <div className="action">🔁 <span>Remix</span></div>
+//           </div>
+
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Shorts;
+import React, { useEffect, useState } from "react";
 import "./Shorts.css";
-import { SlLike } from "react-icons/sl";
-import { SlDislike } from "react-icons/sl";
-import { BiCommentDetail } from "react-icons/bi";
-import { RiShareForwardFill } from "react-icons/ri";
 
 const Shorts = () => {
   const [shorts, setShorts] = useState([]);
-  const iframeRefs = useRef([]);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("shorts")) || [];
-    const formattedData = data.map(item => ({
-      ...item,
-      isLiked: false,
-      isDisliked: false,
-      displayLikes: item.likes || 0
-    }));
-    setShorts(formattedData);
+    setShorts(data);
   }, []);
 
-  // ✅ Auto Play + Restart Video Logic
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          const iframe = entry.target;
-
-          if (entry.isIntersecting) {
-            iframe.contentWindow.postMessage(
-              '{"event":"command","func":"seekTo","args":[0,true]}',
-              "*"
-            );
-            iframe.contentWindow.postMessage(
-              '{"event":"command","func":"playVideo","args":""}',
-              "*"
-            );
-          } else {
-            iframe.contentWindow.postMessage(
-              '{"event":"command","func":"stopVideo","args":""}',
-              "*"
-            );
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    iframeRefs.current.forEach(el => el && observer.observe(el));
-
-    return () => observer.disconnect();
-  }, [shorts]);
-
-  const handleLike = id => {
-    setShorts(prev =>
-      prev.map(short => {
-        if (short.id === id) {
-          const liked = !short.isLiked;
-          return {
-            ...short,
-            isLiked: liked,
-            isDisliked: false,
-            displayLikes: liked
-              ? (short.likes || 0) + 1
-              : short.likes || 0
-          };
-        }
-        return short;
-      })
-    );
-  };
-
-  const handleDislike = id => {
-    setShorts(prev =>
-      prev.map(short => {
-        if (short.id === id) {
-          return {
-            ...short,
-            isDisliked: !short.isDisliked,
-            isLiked: false
-          };
-        }
-        return short;
-      })
-    );
-  };
-
   return (
-    <div className="shorts-wrapper">
-      {shorts.map((short, index) => (
+    <div className="shorts-container">
+      {shorts.length === 0 && (
+        <h2 style={{ color: "white", textAlign: "center" }}>
+          No Shorts Available
+        </h2>
+      )}
+
+      {shorts.map((short) => (
         <div className="short-card" key={short.id}>
           
-          <div className="video-container">
-            <iframe
-              ref={el => (iframeRefs.current[index] = el)}
-              src={`https://www.youtube.com/embed/${short.videoId}?enablejsapi=1&controls=1&rel=0`}
-              title={short.title}
-              frameBorder="0"
-              allow="autoplay"
-              allowFullScreen
-            ></iframe>
-          </div>
+          {/* ✅ SAFE EMBED */}
+          <iframe
+            src={`https://www.youtube.com/embed/${short.videoId}?controls=1&rel=0`}
+            title={short.title}
+            frameBorder="0"
+            allow="encrypted-media"
+            allowFullScreen
+          ></iframe>
 
-          {/* Right Sidebar */}
-          <div className="right-sidebar">
-            <div className="action-item" onClick={() => handleLike(short.id)}>
-              <div className={`icon-circle ${short.isLiked ? "liked" : ""}`}>
-                <SlLike size={26} />
-              </div>
-              <span>{short.displayLikes}</span>
-            </div>
+          <div className="short-info">
+            <p>{short.title}</p>
 
-            <div
-              className="action-item"
-              onClick={() => handleDislike(short.id)}
-            >
-              <div
-                className={`icon-circle ${
-                  short.isDisliked ? "disliked" : ""
-                }`}
-              >
-                <SlDislike size={26} />
-              </div>
-              <span>Dislike</span>
-            </div>
-
-            <div className="action-item">
-              <div className="icon-circle">
-                <BiCommentDetail size={24} />
-              </div>
-              <span>{short.comments}</span>
-            </div>
-
-            <div className="action-item">
-              <div className="icon-circle">
-                <RiShareForwardFill size={24} />
-              </div>
-              <span>Share</span>
+            <div className="short-actions">
+              ❤️ {short.likes}
+              <span style={{ marginLeft: 10 }}>
+                💬 {short.comments}
+              </span>
             </div>
           </div>
-
-          {/* Bottom Info */}
-          <div className="info-overlay">
-            <div className="profile-row">
-              <div className="avatar-placeholder"></div>
-              <span className="username">@adityagoswami</span>
-              <button className="subscribe-button">Subscribe</button>
-            </div>
-            <p className="short-title">{short.title}</p>
-          </div>
-
         </div>
       ))}
     </div>
