@@ -1,7 +1,8 @@
 📺 YouTube Clone – React JS Project
 
-      A full-featured YouTube Clone web application built using React JS, implementing real-world functionalities similar to YouTube.
-    This project focuses on authentication, role-based access, content management, and modern UI/UX features.
+            A full-featured YouTube Clone web application built using React JS, implementing real-world
+      functionalities similarto YouTube.This project focuses on authentication, role-based access, 
+      content management, and modern UI/UX features.
 
 🚀 Live Demo
 
