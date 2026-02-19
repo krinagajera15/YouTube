@@ -19,7 +19,6 @@ const Watch = () => {
   const [error, setError] = useState("");
   const [showMenu, setShowMenu] = useState(false);
 
-  // ================= FETCH VIDEO =================
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,7 +46,6 @@ const Watch = () => {
     window.scrollTo(0, 0);
   }, [id, location.search]);
 
-  // ================= YOUTUBE ID EXTRACT =================
   const getYouTubeID = (url) => {
     if (!url) return null;
 
@@ -66,7 +64,6 @@ const Watch = () => {
     return null;
   };
 
-  // ================= DOWNLOAD FUNCTION =================
   const handleDownload = async () => {
     const videoId = getYouTubeID(video.url);
 
@@ -82,10 +79,8 @@ const Watch = () => {
 
       setShowMenu(false);
 
-      // ✅ FIRST ALERT
       alert("Video link copied ✅\nPress OK to continue to download page");
 
-      // ✅ THEN REDIRECT
       window.open("https://vidssave.com/yt/", "_blank");
 
     } catch {
@@ -93,13 +88,11 @@ const Watch = () => {
     }
   };
 
-  // ================= UI STATES =================
   if (error) return <div className="watch-page error-text">{error}</div>;
   if (!video) return <div className="watch-page loading-text">Loading...</div>;
 
   return (
     <div className="watch-container">
-      {/* MAIN VIDEO */}
       <div className="watch-main">
         <div className="video-container">
           <iframe
@@ -110,12 +103,10 @@ const Watch = () => {
           ></iframe>
         </div>
 
-        {/* DETAILS */}
         <div className="video-details">
           <h1 className="watch-title">{video.title}</h1>
 
           <div className="video-actions-row">
-            {/* CHANNEL */}
             <div className="channel-info">
               <img
                 src={video.channelImage || "https://via.placeholder.com/40"}
@@ -129,7 +120,6 @@ const Watch = () => {
               <button className="subscribe-btn">Subscribe</button>
             </div>
 
-            {/* ACTIONS */}
             <div className="action-buttons">
               <div className="like-dislike-group">
                 <button>
@@ -145,7 +135,6 @@ const Watch = () => {
                 <MdShare size={20} /> Share
               </button>
 
-              {/* DOWNLOAD */}
               <div className="download-wrapper">
                 <button
                   className="download-btn"
@@ -171,7 +160,6 @@ const Watch = () => {
         </div>
       </div>
 
-      {/* RECOMMENDATIONS */}
       <div className="watch-recommendations">
         {videos.map((v) => (
           <Link

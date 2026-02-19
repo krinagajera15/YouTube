@@ -12,7 +12,7 @@ const UserManager = () => {
 
   const apiUrl = "https://697343e3b5f46f8b5826ae3f.mockapi.io/users";
 
-  // ✅ Fetch users (ASYNC / AWAIT)
+  // Fetch users
   const fetchUsers = async () => {
     try {
       setLoading(true);
@@ -35,7 +35,7 @@ const UserManager = () => {
     fetchUsers();
   }, []);
 
-  // ✅ Delete user (ASYNC / AWAIT)
+  // Delete user
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
@@ -57,7 +57,7 @@ const UserManager = () => {
     }
   };
 
-  // ✅ Pagination Logic
+  // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);

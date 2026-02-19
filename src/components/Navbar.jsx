@@ -19,7 +19,6 @@ const Navbar = ({ toggleSidebar }) => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-  // સર્ચ માટેનું સ્ટેટ
   const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
@@ -57,11 +56,10 @@ const Navbar = ({ toggleSidebar }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // --- સર્ચ હેન્ડલર ફંક્શન ---
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // સર્ચ ક્વેરી સાથે સર્ચ પેજ પર લઈ જશે
+    
       navigate(`/search?q=${searchQuery}`);
     }
   };
@@ -86,7 +84,7 @@ const Navbar = ({ toggleSidebar }) => {
         </div>
 
         <div className="nav-center">
-          {/* સર્ચ ફોર્મ */}
+       
           <form className="search-box" onSubmit={handleSearch}>
             <input 
               type="text" 

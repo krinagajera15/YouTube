@@ -95,7 +95,7 @@ const NotificationsModal = ({ isOpen, onClose }) => {
         <ul className="notif-list">
           {notifications.map((n) => (
             <li key={n.id} className="notif-item">
-              {/* LEFT: Channel circle image */}
+          
               <img
                 className="channel-icon"
                 src={n.channelImg || DEFAULT_CHANNEL_IMG}
@@ -106,7 +106,7 @@ const NotificationsModal = ({ isOpen, onClose }) => {
                 }}
               />
 
-              {/* CENTER: Text */}
+          
               <div className="notif-text">
                 <p className="titl-noti-class">
                   <strong >{n.title}</strong> {n.description}
@@ -114,7 +114,7 @@ const NotificationsModal = ({ isOpen, onClose }) => {
                 <small>{n.time}</small>
               </div>
 
-              {/* RIGHT: Video thumbnail */}
+              
               <img
                 className="video-thumb"
                 src={`https://i.ytimg.com/vi/${n.videoId}/hqdefault.jpg`}

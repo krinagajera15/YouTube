@@ -16,13 +16,11 @@ const Dashboardadmin = () => {
      const fetchData = async () => {
        try {
          setLoading(true);
- 
-         // ✅ UPDATED USERS API
+
          const userRes = await fetch("https://697343e3b5f46f8b5826ae3f.mockapi.io/users");
          const userData = await userRes.json();
          setTotalUsers(Array.isArray(userData) ? userData.length : 0);
- 
-         // ✅ CHANNELS API (same as before)
+
          const channelRes = await fetch("https://69809eaa6570ee87d50fd891.mockapi.io/channelsdata");
          const channelData = await channelRes.json();
          setTotalChannels(Array.isArray(channelData) ? channelData.length : 0);
@@ -54,7 +52,7 @@ const Dashboardadmin = () => {
         <Navbaradmin />
 
         <section className="admin-stats-grid">
-  {/* Total Users */}
+
             <div className="admin-stat-card blue">
               <div className="admin-stat-info">
                 <p className="admin-stat-label">Total Users</p>
@@ -64,8 +62,7 @@ const Dashboardadmin = () => {
               </div>
               <Users size={40} className="admin-stat-icon-bg" />
             </div>
-  
-            {/* Total Channels */}
+
             <div className="admin-stat-card red">
               <div className="admin-stat-info">
                 <p className="admin-stat-label">Total Channels</p>

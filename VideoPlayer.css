@@ -6,7 +6,6 @@
   color: #fff;
 }
 
-/* Left side – Video */
 .video-main {
   flex: 3;
 }
@@ -17,14 +16,12 @@
   border-radius: 12px;
 }
 
-/* Video title */
 .video-title {
   margin-top: 12px;
   font-size: 18px;
   font-weight: 600;
 }
 
-/* Right side – Suggested videos */
 .video-sidebar {
   flex: 1;
   display: flex;
@@ -57,7 +54,6 @@
   margin-top: 4px;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .video-player-page {
     flex-direction: column;

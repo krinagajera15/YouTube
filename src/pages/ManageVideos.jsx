@@ -5,7 +5,7 @@ const ManageVideos = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    // MockAPI fetch example
+
     fetch("https://6462d9b79c677e23218af42b.mockapi.io/videos")
       .then((res) => res.json())
       .then((data) => setVideos(data))
@@ -35,4 +35,4 @@ const ManageVideos = () => {
   );
 };
 
-export default ManageVideos; // ✅ default export
+export default ManageVideos;

@@ -1,15 +1,13 @@
-/* Container styling */
 .add-video-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
     padding: 20px;
-    background-color: var(--bg-color); /* index.css માંથી */
+    background-color: var(--bg-color); 
     transition: background 0.3s ease;
 }
 
-/* Card styling */
 .add-video-card {
     background-color: var(--card-bg, #f9f9f9);
     padding: 30px;
@@ -26,7 +24,6 @@
     color: var(--text-color);
 }
 
-/* Channel Badge (Logo and Name) */
 .channel-badge {
     display: flex;
     align-items: center;
@@ -39,7 +36,7 @@
 }
 
 .channel-badge img {
-    border: 2px solid #ff0000; /* YouTube Red Border */
+    border: 2px solid #ff0000; 
 }
 
 .channel-badge span {
@@ -47,7 +44,6 @@
     color: var(--text-color);
 }
 
-/* Form inputs styling */
 .add-video-form {
     display: flex;
     flex-direction: column;
@@ -65,17 +61,15 @@
     transition: border 0.3s ease;
 }
 
-/* Dark mode input adjustment */
 body.dark .add-video-form input {
     border: 1px solid #3f3f3f;
 }
 
 .add-video-form input:focus {
-    border-color: #065fd4; /* YouTube Blue */
+    border-color: #065fd4; 
     box-shadow: 0 0 5px rgba(6, 95, 212, 0.3);
 }
 
-/* Upload Button */
 .upload-btn {
     background-color: #cc0000;
     color: white;
@@ -99,7 +93,6 @@ body.dark .add-video-form input {
     transform: scale(0.98);
 }
 
-/* Placeholder Styling */
 ::placeholder {
     color: #888;
     opacity: 0.8;

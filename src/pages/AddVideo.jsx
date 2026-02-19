@@ -26,14 +26,12 @@ const AddVideo = () => {
       const myChannel = allChannels[userEmail];
 
       if (myChannel) {
-        // જો ચેનલ મળે તો ડેટા સેટ કરો
         setFormData((prev) => ({
           ...prev,
           channel: myChannel.c_name,
           channelImage: myChannel.c_image
         }));
       } else {
-        // જો ચેનલ નથી બનાવી તો પાછા મોકલો
         alert("You need to create a channel first!");
         navigate("/"); 
       }
@@ -83,7 +81,6 @@ const AddVideo = () => {
       <div className="add-video-card">
         <h2>Add Video</h2>
         
-        {/* ચેનલ પ્રિવ્યૂ */}
         <div className="channel-badge" style={{display: 'flex', alignItems: 'center', gap: '10px', background: '#eee', padding: '10px', borderRadius: '8px', marginBottom: '15px'}}>
           {formData.channelImage && (
             <img 

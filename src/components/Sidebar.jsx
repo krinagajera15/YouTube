@@ -18,7 +18,6 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-item">
         <NavLink to={"/shorts"} ><SiYoutubeshorts className="s-icon" /> <span>Shorts</span></NavLink>
-        {/* <NavLink to={"/shorts"} className={({ isActive }) =>isActive ? "sidebar-item active" : "sidebar-item"}><SiYoutubeshorts className="s-icon" /> <span>Shorts</span></NavLink> */}
       </div>
       <div className="sidebar-item">
         <NavLink to={"/subscribe"}><MdOutlineSubscriptions className="s-icon" /> <span>Subscriptions</span></NavLink>

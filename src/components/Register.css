@@ -10,8 +10,7 @@
     display: flex;
     background: #ffffff;
   }
-  
-  /* ===== Left Image ===== */
+ 
   .register-image {
     flex: 1.2;
     background: #ec0202;
@@ -26,7 +25,6 @@
     border-radius: 6px;
   }
   
-  /* ===== Right Form ===== */
   .register-form {
     flex: 1;
     padding: 80px 90px;
@@ -48,7 +46,6 @@
     margin-bottom: 30px;
   }
   
-  /* ===== Button ===== */
   .register-btn {
     width: 100%;
     padding: 14px;
@@ -65,8 +62,7 @@
   .register-btn:hover {
     background: #f70202;
   }
-  
-  /* ===== Sign In Text ===== */
+
   .signin-text {
     margin-top: 18px;
     text-align: center;
@@ -83,8 +79,7 @@
   .signin-link:hover {
     text-decoration: underline;
   }
-  
-  /* ===== Responsive ===== */
+ 
   @media (max-width: 900px) {
     .register-wrapper {
       flex-direction: column;

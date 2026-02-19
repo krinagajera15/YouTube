@@ -1,17 +1,15 @@
-/* Sidebar Main Container */
 .sidebar {
   width: 200px;
-  background-color: var(--bg-color); /* થીમ મુજબ બદલાશે */
+  background-color: var(--bg-color);
   height: calc(100vh - 56px);
   position: sticky;
   top: 56px;
-  color: var(--text-color); /* થીમ મુજબ બદલાશે */
+  color: var(--text-color); 
   padding-top: 12px;
   border-right: 1px solid var(--border-color);
 
 }
 
-/* Individual Sidebar Item */
 .sidebar-item {
   width: 100%;
   display: flex;
@@ -27,12 +25,10 @@
   
 }
 
-/* Hover Effect - થીમ પ્રમાણે બદલાશે */
 .sidebar-item:hover {
   background-color: var(--hover-bg);
 }
 
-/* Active Class - જે આઈટમ અત્યારે ખુલેલી હોય તેના માટે */
 .sidebar-item.active {
   background-color: var(--hover-bg);
   font-weight: 600;
@@ -41,14 +37,12 @@ a{
   text-decoration: none;
 }
 
-/* Icons Style */
 .s-icon {
   margin-right: 24px;
   font-size: 22px;
-  color: var(--icon-color); /* Variables માંથી કલર લેશે */
+  color: var(--icon-color); 
 }
 
-/* Sidebar Title (You >) */
 .sidebar-title {
   padding: 10px 24px;
   font-size: 16px;
@@ -56,14 +50,12 @@ a{
   color: var(--text-color);
 }
 
-/* Horizontal Line (Divider) */
 hr {
   border: 0;
   border-top: 1px solid var(--border-color);
   margin: 12px 0;
 }
 
-/* Text and Icon inside item during hover */
 .sidebar-item:hover .span,
 .sidebar-item:hover .s-icon {
   color: var(--hover-text);

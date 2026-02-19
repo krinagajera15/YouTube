@@ -1,4 +1,3 @@
-/* ૧. મોડલ ઓવરલે (બેકગ્રાઉન્ડ બ્લર અને સેન્ટરિંગ) */
 .create-channel-overlay {
   position: fixed;
   top: 0;
@@ -14,7 +13,6 @@
   padding: 20px;
 }
 
-/* ૨. મોડલ કાર્ડ સ્ટાઇલ */
 .create-channel-modal {
   background-color: var(--bg-color, #ffffff);
   color: var(--text-color, #0f0f0f);
@@ -32,7 +30,6 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* ૩. ટાઈટલ */
 .chenl-title-class {
   color: black;
   margin-bottom: 25px;
@@ -43,7 +40,6 @@
   color: white;
 }
 
-/* ૪. ઈમેજ અપલોડ સેક્શન */
 .image-upload {
   display: flex;
   flex-direction: column;
@@ -83,13 +79,11 @@
   padding: 5px;
 }
 
-/* ૫. ફાઈલ ઇનપુટ સ્ટાઇલ */
 .image-upload input[type="file"] {
   font-size: 12px;
   width: 200px;
 }
 
-/* ૬. ટેક્સ્ટ ઇનપુટ (Channel Name) */
 .create-channel-modal input[type="text"] {
   width: 100%;
   padding: 12px 15px;
@@ -107,11 +101,10 @@
   border-color: #d40606;
 }
 
-/* ૭. બટન્સ સ્ટાઇલ */
 .createchenal-btn {
   width: 100%;
   padding: 12px;
-  background-color: #d40606; /* YouTube Blue */
+  background-color: #d40606;
   color: white;
   border: none;
   border-radius: 25px;
@@ -142,7 +135,6 @@
   background-color: var(--hover-bg, #f2f2f2);
 }
 
-/* ૮. ડાર્ક મોડ એડજસ્ટમેન્ટ */
 .create-channel-modal.dark {
   background-color: #212121;
   border: 1px solid #3f3f3f;

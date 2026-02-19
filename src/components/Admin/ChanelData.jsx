@@ -15,7 +15,7 @@ const ChannelAdmin = () => {
   const itemsPerPage = 5;
   const apiUrl = 'https://69809eaa6570ee87d50fd891.mockapi.io/channelsdata';
 
-  // 🔹 Fetch Channels
+  // Fetch Channels
   const fetchChannels = async () => {
     try {
       const res = await fetch(apiUrl);
@@ -30,7 +30,7 @@ const ChannelAdmin = () => {
     fetchChannels();
   }, []);
 
-  // 🔹 Edit Click
+  // Edit Click
   const handleEditClick = (channel) => {
     setEditingId(channel.id);
     setEditFormData({
@@ -39,7 +39,7 @@ const ChannelAdmin = () => {
     });
   };
 
-  // 🔹 Image Upload Handler
+  // Image Upload Handler
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -54,7 +54,7 @@ const ChannelAdmin = () => {
     reader.readAsDataURL(file);
   };
 
-  // 🔹 Save Update
+  // Save Update
   const handleSave = async (id) => {
     try {
       await fetch(`${apiUrl}/${id}`, {
@@ -69,7 +69,7 @@ const ChannelAdmin = () => {
     }
   };
 
-  // 🔹 Delete Channel
+  // Delete Channel
   const handleDelete = async (id) => {
     if (window.confirm('Delete this channel?')) {
       await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
@@ -77,7 +77,7 @@ const ChannelAdmin = () => {
     }
   };
 
-  // 🔹 Pagination
+  // Pagination
   const indexOfLast = currentPage * itemsPerPage;
   const currentData = channels.slice(indexOfLast - itemsPerPage, indexOfLast);
   const totalPages = Math.ceil(channels.length / itemsPerPage);

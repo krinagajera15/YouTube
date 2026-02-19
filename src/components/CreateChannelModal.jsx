@@ -22,10 +22,9 @@ const CreateChannelModal = ({ isOpen, onClose }) => {
       const existingChannel = allChannels[userEmail];
       
       if (existingChannel) {
-        // જો ડેટા પહેલેથી હોય તો સ્ટેટમાં ભરો
         setName(existingChannel.c_name);
         setImage(existingChannel.c_image);
-        setChannelId(existingChannel.id); // API માં અપડેટ કરવા માટે ID
+        setChannelId(existingChannel.id); 
         setIsEditing(true);
       } else {
         setIsEditing(false);
@@ -59,14 +58,14 @@ const CreateChannelModal = ({ isOpen, onClose }) => {
     try {
       let response;
       if (isEditing && channelId) {
-        // --- UPDATE (PUT) LOGIC ---
+        
         response = await fetch(`${API_URL}/${channelId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(channelData),
         });
       } else {
-        // --- CREATE (POST) LOGIC ---
+        
         response = await fetch(API_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },

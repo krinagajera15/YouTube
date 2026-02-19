@@ -48,7 +48,7 @@ const Comments = ({ videoId }) => {
     setCommentText("");
   };
 
-  // Delete Comment (Only Owner)
+  // Delete Comment
   const handleDelete = (commentId) => {
     const allComments =
       JSON.parse(localStorage.getItem("videoComments")) || {};

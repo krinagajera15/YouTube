@@ -9,7 +9,7 @@ import SpeechRecognition, {
 const VoiceSearchModal = ({
   isOpen,
   onClose,
-  onVoiceSearch = () => {},   // ✅ default empty function (important)
+  onVoiceSearch = () => {},
 }) => {
   const ctx = useContext(Modecontext);
 

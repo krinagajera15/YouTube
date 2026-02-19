@@ -8,7 +8,6 @@ const AddShorts = () => {
   const [videoId, setVideoId] = useState("");
   const [currentChannel, setCurrentChannel] = useState(null);
 
-  // પેજ લોડ થાય ત્યારે લોગિન યુઝરની ચેનલની વિગતો મેળવો
   useEffect(() => {
     const loginData = JSON.parse(localStorage.getItem("loginData"));
     const allChannels = JSON.parse(localStorage.getItem("userChannels")) || {};
@@ -34,17 +33,16 @@ const AddShorts = () => {
       return;
     }
 
-    // શોર્ટ્સના ડેટામાં ચેનલની વિગતો અને યુઝર ઈમેઈલ ઉમેર્યો
     const newShort = {
-      id: Date.now().toString(), // String ID for consistency
+      id: Date.now().toString(), 
       videoId: videoId,
       title: title,
       likes: 0,
       comments: 0,
-      type: "shorts", // આનાથી UserDetails માં ફિલ્ટર થશે
-      channel: currentChannel.c_name, // ચેનલનું નામ
-      userEmail: currentChannel.userEmail, // મેચિંગ માટે ઈમેઈલ
-      c_image: currentChannel.c_image, // પ્રોફાઈલ પિક્ચર
+      type: "shorts", 
+      channel: currentChannel.c_name,
+      userEmail: currentChannel.userEmail, 
+      c_image: currentChannel.c_image, 
     };
 
     const oldShorts = JSON.parse(localStorage.getItem("shorts")) || [];
@@ -52,7 +50,7 @@ const AddShorts = () => {
 
     setTitle("");
     setVideoId("");
-    alert(`Short Added to ${currentChannel.c_name} Successfully ✅`);
+    alert(`Short Added to ${currentChannel.c_name} Successfully`);
   };
 
   return (
@@ -60,7 +58,6 @@ const AddShorts = () => {
       <div className="add-shorts-card">
         <h2>Add Shorts</h2>
 
-        {/* ચેનલની માહિતી બતાવવા માટે (Optional UI) */}
         {currentChannel && (
           <div className="channel-preview-short">
             <img src={currentChannel.c_image} alt="logo" style={{width:'40px', height:'40px', borderRadius:'50%'}} />

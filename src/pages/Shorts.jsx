@@ -76,8 +76,6 @@ const Shorts = () => {
     return () => observer.disconnect();
   }, [shorts]);
 
-  // ========== LIKE / DISLIKE ==========
-
   const handleLike = (id) => {
     if (!loggedInUser) {
       alert("Please login to like shorts!");
@@ -139,8 +137,6 @@ const Shorts = () => {
     if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
     return num;
   };
-
-  // ========== JSX ==========
 
   return (
     <div className="shorts-wrapper">

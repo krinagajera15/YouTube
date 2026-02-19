@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./Login.css";
 import loginYt from "../assets/image/yt.png";
-import { Link, useNavigate, useLocation } from "react-router-dom"; // useLocation ઉમેર્યું
+import { Link, useNavigate, useLocation } from "react-router-dom"; 
 
 const Login = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // લોકેશન સ્ટેટ મેળવવા માટે
+  const location = useLocation(); 
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // કયા પેજ પર પાછા જવું છે તે નક્કી કરો (Default હોમ પેજ "/")
+
   const goBackTo = location.state?.from || "/";
 
   const handleLogin = async (e) => {
@@ -23,7 +23,7 @@ const Login = () => {
       return;
     }
 
-    // ✅ Hardcoded admin credentials
+    // Hardcoded admin credentials
     const adminEmail = "ytadmin@gmail.com";
     const adminPassword = "yt@123";
 
@@ -33,14 +33,13 @@ const Login = () => {
     JSON.stringify({
       role: "admin",
       email,
-      name: "YT Admin"   // 🔥 Admin name store
+      name: "YT Admin"   
     })
   );
 
-  // Optional: direct admin name key (easy access)
   localStorage.setItem("adminName", "YT Admin");
 
-  navigate("/dashbordadmin"); // ✅ correct admin dashboard route
+  navigate("/dashbordadmin"); // correct admin dashboard 
   return;
 }
 
@@ -59,7 +58,6 @@ const Login = () => {
         // User login success
         localStorage.setItem("loginData", JSON.stringify({ role: "user", ...user }));
         
-        // 🔥 અહીં જાદુ છે: જે પેજ પરથી આવ્યા હતા ત્યાં પાછા મોકલો
         navigate(goBackTo, { replace: true }); 
       } else {
         setError("Invalid email or password");

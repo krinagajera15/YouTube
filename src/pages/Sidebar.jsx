@@ -1,4 +1,3 @@
-// Layout.jsx
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { MiniSidebar } from "../components/SubSidebar";

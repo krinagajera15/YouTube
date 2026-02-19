@@ -20,11 +20,10 @@ const SignUp = () => {
   };
 
   const handleRegister = async () => {
-    setError(""); // Clear previous error
+    setError("");
 
     const { username, email, password, confirmPassword } = formData;
 
-    // 1️⃣ Basic validation
     if (!username || !email || !password || !confirmPassword) {
       setError("All fields are required");
       return;
@@ -36,18 +35,15 @@ const SignUp = () => {
     }
 
     try {
-      // 2️⃣ Fetch existing users from MockAPI
       const res = await fetch("https://697343e3b5f46f8b5826ae3f.mockapi.io/users");
       const users = await res.json();
 
-      // 3️⃣ Check if email already exists
       const emailExists = users.some((u) => u.email === email);
       if (emailExists) {
         setError("Email already registered. Please login.");
         return;
       }
 
-      // 4️⃣ Create new user
       const response = await fetch("https://697343e3b5f46f8b5826ae3f.mockapi.io/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -60,7 +56,7 @@ const SignUp = () => {
       console.log("User created:", data);
 
       alert("Registration Successful!");
-      navigate("/login"); // Redirect to login
+      navigate("/login"); 
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
@@ -69,12 +65,11 @@ const SignUp = () => {
 
   return (
     <div className="register-wrapper">
-      {/* Left Image */}
+    
       <div className="register-image">
         <img src={loginYt} alt="Register" />
       </div>
 
-      {/* Right Form */}
       <div className="register-form">
         <h2>Create Account</h2>
         <p>Sign up to get started</p>
@@ -115,7 +110,6 @@ const SignUp = () => {
           onChange={handleChange}
         />
 
-        {/* Show error message */}
         {error && <p className="error">{error}</p>}
 
         <button className="register-btn" onClick={handleRegister}>

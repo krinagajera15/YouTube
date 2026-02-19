@@ -11,14 +11,11 @@ import { AuthGuard } from "../guard/AuthGuard";
 import AddShorts from "../pages/AddShorts";
 import { Subscriptionpage } from "../pages/SubscriptionPage";
 import UserDetails from "./User/Userdetails";
-// import UserManager from "./Admin/UserData";
 import Dashboardadmin from "../pages/Admin/DashbordAdmin";
 import ChannelAdmin from "./Admin/ChanelData";
 import ManageVideoAdmin from "./Admin/Managevideo";
 import UserManager from "./Admin/UserData";
-import { Adminauthguard } from "../guard/AdminAuthGuard";
 
-// ✅ Named export must match import
 export const router = createBrowserRouter([
   {
     path: "/login",
@@ -34,7 +31,6 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/watch/:id", element: <Watch /> },
-      // { path: "/admin/dashboard", element: <AdminDashboard /> },
       { path: "/admin/add-video", element: <AddVideo /> },
       { path: "/admin/manage-videos", element: <ManageVideos /> },
       { path: "/addshorts", element: <AddShorts /> },
