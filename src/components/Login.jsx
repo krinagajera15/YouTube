@@ -56,9 +56,19 @@ const Login = () => {
 
       if (user) {
         // User login success
+<<<<<<< Updated upstream
         localStorage.setItem("loginData", JSON.stringify({ role: "user", ...user }));
         
         navigate(goBackTo, { replace: true }); 
+=======
+        localStorage.setItem(
+          "loginData",
+          JSON.stringify({ role: "user", ...user })
+        );
+
+        // 🔥 અહીં જાદુ છે: જે પેજ પરથી આવ્યા હતા ત્યાં પાછા મોકલો
+        navigate(goBackTo, { replace: true });
+>>>>>>> Stashed changes
       } else {
         setError("Invalid email or password");
       }

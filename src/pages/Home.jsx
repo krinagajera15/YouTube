@@ -6,11 +6,17 @@ import Modecontext from "../Context/ModeContext";
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
+<<<<<<< Updated upstream
   const [isVoiceOpen, setIsVoiceOpen] = useState(false);
   const [voiceSearch, setVoiceSearch] = useState("");
 
   const ctx = useContext(Modecontext);
   const theme = ctx?.mode || "light";
+=======
+  
+  const ctx = useContext(Modecontext);
+  const theme = ctx?.mode || 'light';
+>>>>>>> Stashed changes
 
   useEffect(() => {
     document.body.className = theme;
